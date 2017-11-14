@@ -6,7 +6,7 @@ clientId=$4
 tenantId=$5
 clientSecret=$6
 DirectorIP="10.3.0.4"
-MangerIP=`curl -s -u cloudera:"Sysgain@1234" "http://${DirectorIP}:7189/api/v10/environments/Director_Azure_Deployment%20Environment/deployments/Director_Azure_Deployment%20Deployment" | cut -d "{"  -f2 | cut -d ":" -f2 | sed -n "3p" | cut -d "\"" -f2 | sed -n "1p"`
+ManagerIP=`curl -s -u cloudera:"Sysgain@1234" "http://${DirectorIP}:7189/api/v10/environments/Director_Azure_Deployment%20Environment/deployments/Director_Azure_Deployment%20Deployment" | cut -d "{"  -f2 | cut -d ":" -f2 | sed -n "3p" | cut -d "\"" -f2 | sed -n "1p"`
 curl -u admin:admin 'http://'${ManagerIP}':7180/api/v1/clusters/Director_Azure_Deployment/services' > /tmp/ClouderaServices
 cat /tmp/ClouderaServices  | grep 'serviceUrl' | awk -F'/' '{print $6}' | tr -d '",' > /tmp/CServices
 HDFS=`grep HDFS /tmp/CServices`
