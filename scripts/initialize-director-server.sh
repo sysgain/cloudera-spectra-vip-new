@@ -100,7 +100,7 @@ log "Installing basic tools ... Successful"
 
 log "Installing Cloudera Director Server, Client, Plugins and dependencies ..."
 
-sudo wget -t 5 http://archive.cloudera.com/director/redhat/6/x86_64/director/cloudera-director.repo -O /etc/yum.repos.d/cloudera-director.repo >> ${LOG_FILE}
+sudo wget -t 5 http://archive.cloudera.com/director/redhat/6/x86_64/director/2.6.0/cloudera-director.repo -O /etc/yum.repos.d/cloudera-director.repo >> ${LOG_FILE}
 
 # install with retry
 n=0
